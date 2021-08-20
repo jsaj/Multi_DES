@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 # base classifiers
 from sklearn.ensemble import BaggingClassifier
 from sklearn.linear_model import LogisticRegression
+from deslib.des import METADES
 
 from sklearn.metrics import f1_score, auc, roc_auc_score
 from scipy import *
