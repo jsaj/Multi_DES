@@ -522,7 +522,6 @@ class DSSC():
 
     NPM, EPM = [], []
     list_projects = list(np.unique(self.dataset_total['name']))
-    aux = []
     performance_NPM, performance_EPM, = [], []
     for target_project in list_projects:
       for ds in dynamic_algorithm:
@@ -551,8 +550,6 @@ class DSSC():
               cols = ['Dataset', 'Project', 'Percent_Bugs', 'DS', 'scaler',  'f1', 'auc', 'pf']
               array_npm = pd.DataFrame([array_npm], columns=cols)         
               performance_NPM.append(array_npm)
-              ds_data.append(array_npm)
-              aux.append(array_npm)
 
               array_epm.insert(0, self.dataset_name)
               array_epm.insert(1, target_project)
