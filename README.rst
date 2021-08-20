@@ -28,61 +28,54 @@ O DSSC, considerando a natureza da previsão de defeitos entre projetos, é cent
 Requisitos:
 -------------
 
-DSSC is tested to work with Python 3.5, 3.6 and 3.7. The dependency requirements are:
+O DSSC foi testado para funcionar com Python 3.5 or maior. Os requisitos de dependências são:
 
-* scipy(>=1.4.0)
-* numpy(>=1.17.0)
-* scikit-learn(>=0.20.0)
+* scipy
+* numpy
+* scikit-learn
+* deslib
+* glob
 
-These dependencies are automatically installed using the pip commands above.
+Essas dependências são instaladas automaticamente usando os comandos pip abaixo.
+
+Instalação
+--------------
+
+O DSSC requer, principalmente, do pacote deslib instalado usando o comando pip:
+
+.. code-block:: bash
+
+    pip install deslib
+ 
+Além disso, o seguinte comando é necessário para utilizar o método DSSC:
+
+.. code-block:: bash
+
+    !git clone https://github.com/jsaj/dssc.git
 
 Exemplo
 --------------
-  
-Here we present an example of the KNORA-E techniques using a random forest to generate the pool of classifiers:
+
+Aqui, mostramos um exemplo do DSSC com suas configurações padrões:
 
 .. code-block:: python
 
-    from sklearn.ensemble import RandomForestClassifier
-    from deslib.des.knora_e import KNORAE
+    from dssc.DSSC import DSSC
+    import numpy as np
+    import pandas as pd
+    
+    # dataset examples: AEEEM, NASA, PROMISE, RELINK
+    dataset = '/content/dssc/Datasets/RELINK'
 
-    # Train a pool of 10 classifiers
-    pool_classifiers = RandomForestClassifier(n_estimators=10)
-    pool_classifiers.fit(X_train, y_train)
+    # create object for defect prediction 
+    model = DSSC(url_dataset=dataset)
 
-    # Initialize the DES model
-    knorae = KNORAE(pool_classifiers)
+    # calculates and optimizes results in relation to NPM and EPM
+    npm, epm = model.optimization_process()
 
-    # Preprocess the Dynamic Selection dataset (DSEL)
-    knorae.fit(X_dsel, y_dsel)
+    print(npm, '\n\n', epm)
 
-    # Predict new examples:
-    knorae.predict(X_test)
-
-The library accepts any list of classifiers (from scikit-learn) as input, including a list containing different classifier models (heterogeneous ensembles).
-More examples to use the API can be found in the `examples page <auto_examples/index.html>`_.
-
-
-Citation
-==================
-
-If you use DESLib in a scientific paper, please consider citing the following paper:
-
-Rafael M. O. Cruz, Luiz G. Hafemann, Robert Sabourin and George D. C. Cavalcanti **DESlib: A Dynamic ensemble selection library in Python.** arXiv preprint arXiv:1802.04967 (2018).
-
-.. code-block:: text
-
-    @article{JMLR:v21:18-144,
-        author  = {Rafael M. O. Cruz and Luiz G. Hafemann and Robert Sabourin and George D. C. Cavalcanti},
-        title   = {DESlib: A Dynamic ensemble selection library in Python},
-        journal = {Journal of Machine Learning Research},
-        year    = {2020},
-        volume  = {21},
-        number  = {8},
-        pages   = {1-5},
-        url     = {http://jmlr.org/papers/v21/18-144.html}
-    }
-
+Além da predição com parâmetros padrões, o método DSSC aceita qualquer lista de técnicas de seleção dinâmica (do deslib) e lista de classificadores (do scikit-learn) como entrada, incluindo uma lista contendo diferentes métodos de preprocessamento (do scikit-learn). Mais exemplos para usar a API podem ser encontrados na página de examples_.
 
 # References
 -----------
@@ -100,6 +93,4 @@ Rafael M. O. Cruz, Luiz G. Hafemann, Robert Sabourin and George D. C. Cavalcanti
 
 .. _GitHub: https://github.com/scikit-learn-contrib/DESlib
 
-.. _example: https://github.com/jsaj/ml/blob/master/example
-
-
+.. _example: https://github.com/jsaj/dssc/blob/master/example.ipynb
