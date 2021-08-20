@@ -1,20 +1,10 @@
-# DSSC
+# Introdução
 
-DSSC é um método supervisionado que utilizada técnicas de seleção dinâmica para realizar a predição de defeitos entre projetos. Este método é centrado em técnicas do DESlib
+DSSC é um método supervisionado que utilizada técnicas de seleção dinâmica para realizar a predição de defeitos entre projetos. Este método é centrado em técnicas da biblioteca **DESlib** [1]_, bem como algoritmos de aprendizagem de máquina disponíveis na API scikit-learn_ [2]_. 
 
-
-
-# References
-
-Welcome to DESlib documentation!
 =================================================
 
-DESlib is an ensemble learning library focusing the implementation of the state-of-the-art techniques for dynamic classifier
-and ensemble selection.
 
-DESlib is a work in progress. Contributions are welcomed through its GitHub page: https://github.com/scikit-learn-contrib/DESlib.
-
-Introduction
 --------------
 Dynamic Selection (DS) refers to techniques in which the base classifiers are selected
 on the fly, according to each new sample to be classified. Only the most competent, or an ensemble containing the most competent classifiers is selected to predict
@@ -111,9 +101,12 @@ Rafael M. O. Cruz, Luiz G. Hafemann, Robert Sabourin and George D. C. Cavalcanti
 # References
 -----------
 .. [1] : Rafael M. O. Cruz, Luiz G. Hafemann, Robert Sabourin and George D. C. Cavalcanti DESlib: A Dynamic ensemble selection library in Python. arXiv preprint arXiv:1802.04967 (2018).
-.. [1] : R. M. O. Cruz, R. Sabourin, and G. D. Cavalcanti, “Dynamic classifier selection: Recent advances and perspectives,” Information Fusion, vol. 41, pp. 195 – 216, 2018.
 
-.. [2] : A. S. Britto, R. Sabourin, L. E. S. de Oliveira, Dynamic selection of classifiers - A comprehensive review, Pattern Recognition 47 (11) (2014) 3665–3680.
+.. [2] : F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay, “Scikit-learn: Machine learning in Python,” Journal of Machine Learning Research, vol. 12, pp. 2825–2830, 2011.
+
+.. [3] : R. M. O. Cruz, R. Sabourin, and G. D. Cavalcanti, “Dynamic classifier selection: Recent advances and perspectives,” Information Fusion, vol. 41, pp. 195 – 216, 2018.
+
+.. [4] : A. S. Britto, R. Sabourin, L. E. S. de Oliveira, Dynamic selection of classifiers - A comprehensive review, Pattern Recognition 47 (11) (2014) 3665–3680.
 
 .. _scikit-learn: http://scikit-learn.org/stable/
 
