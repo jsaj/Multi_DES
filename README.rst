@@ -8,7 +8,7 @@ Internamente, o DSSC requer que alguns processos sejam realizados antes do trein
 
 1. Local onde os dados do experimento são armazenados
 2. Pré-processamentos dos dados devem seguir uma definição preestabelecida
- * Dado que este método busca predizer se um determinado projeto é ou não defeituoso, o processo de predição requer que os dados possuam apenas dois rótulos, defeito e não defeito, ou seja, opera somente com dados binários. Além disso, requer que as algumas *features* (colunas) dos dados sigam uma sequência predefinida. Para mais detalhes, verificar a página exemplo_
+ * Dado que este método busca predizer se um determinado projeto é ou não defeituoso, o processo de predição requer que os dados possuam apenas dois rótulos, defeito e não defeito, ou seja, opera somente com dados binários. Além disso, requer que as algumas *features* (colunas) dos dados sigam uma sequência predefinida, isto é, *bug label* e LOC (linha de código – *Lines of Code*) na primeira e segunda coluna, respectivamente. Para mais detalhes, verificar a página example_
 3. O treinamento e avaliação de modelos de previsão
  * É possível treinar e avaliar várias técnicas de seleção dinâmica, bem como utilizar diversos algoritmos de aprendizagem de máquina. Então, todos os modelos gerados usam as mesmas etapas de processamento de dados, treinamento e avaliação
 
@@ -100,6 +100,6 @@ Rafael M. O. Cruz, Luiz G. Hafemann, Robert Sabourin and George D. C. Cavalcanti
 
 .. _GitHub: https://github.com/scikit-learn-contrib/DESlib
 
-.. _exemplo: https://github.com/jsaj/ml/blob/master/example
+.. _example: https://github.com/jsaj/ml/blob/master/example
 
 
