@@ -25,10 +25,10 @@ O DSSC, considerando a natureza da previsão de defeitos entre projetos, é cent
     3. **Model Evaluating**, processo de avaliação do modelo com as medidas de desempenho sem reconhecimento de esforço
 
 
-Dependencies:
+Requisitos:
 -------------
 
-DESlib is tested to work with Python 3.5, 3.6 and 3.7. The dependency requirements are:
+DSSC is tested to work with Python 3.5, 3.6 and 3.7. The dependency requirements are:
 
 * scipy(>=1.4.0)
 * numpy(>=1.17.0)
