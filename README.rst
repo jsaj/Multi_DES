@@ -100,6 +100,6 @@ Rafael M. O. Cruz, Luiz G. Hafemann, Robert Sabourin and George D. C. Cavalcanti
 
 .. _GitHub: https://github.com/scikit-learn-contrib/DESlib
 
-.. _exemplo: https://github.com/scikit-learn-contrib/DESlib
+.. _exemplo: https://github.com/jsaj/ml/blob/master/example
 
 
