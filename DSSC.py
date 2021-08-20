@@ -333,7 +333,7 @@ class DSSC():
 
     PF = round(fp / (fp + tn), 5)
 
-    NPM = [F1, AUC, PF, precision, recall, accuracy]
+    NPM = [F1, AUC, PF]
 
     test_data = test_data.drop('score*loc', axis=1)
 
@@ -522,7 +522,6 @@ class DSSC():
 
     NPM, EPM = [], []
     list_projects = list(np.unique(self.dataset_total['name']))
-    print(list_projects)
     aux = []
     performance_NPM, performance_EPM, = [], []
     for target_project in list_projects:
@@ -532,7 +531,6 @@ class DSSC():
         string_ds = string_ds.split(".")
 
         name_ds = string_ds[len(string_ds)-1]
-        print(name_ds)
         if 'deslib' not in string_ds:
           raise ValueError('Input dynamic selection technique invalid!')
         for classifier in base_estimator:
