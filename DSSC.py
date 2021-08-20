@@ -521,55 +521,48 @@ class DSSC():
       raise ValueError('Value inputed for dsel is invalid. Accepts only float between 0.2 and 0.5 or None.')
 
     NPM, EPM = [], []
-    projetos_preditos = ['szybkafucha', 'termoproject', 'tomcat', 'velocity-1.4', 'velocity-1.5', 'velocity-1.6', 'workflow', 'wspomaganiepi']
     list_projects = list(np.unique(self.dataset_total['name']))
     print(list_projects)
     aux = []
     performance_NPM, performance_EPM, = [], []
     for target_project in list_projects:
-      
-      if target_project in projetos_preditos:
-        print(target_project)
-        for ds in dynamic_algorithm:
-          string_ds = str(type(ds))
-          string_ds = string_ds.split("'")[1]
-          string_ds = string_ds.split(".")
+      for ds in dynamic_algorithm:
+        string_ds = str(type(ds))
+        string_ds = string_ds.split("'")[1]
+        string_ds = string_ds.split(".")
 
-          name_ds = string_ds[len(string_ds)-1]
-          print(name_ds)
-          if 'deslib' not in string_ds:
-            raise ValueError('Input dynamic selection technique invalid!')
-          epm_data = []
-          for classifier in base_estimator:
-            for s in preprocessing:
-              for resampling in resample_strategy:
-                self._target_definition(target_project, self.dataset_total)
-                model, scaler = self._model_building(ds=ds, base_estimator=classifier,
-                                                    scaler=s, resample_strategy=None,
-                                                    dsel_size=dsel_size)
-                array_npm, array_epm = self._model_evaluating(model=model, scaler=scaler)
-                
-                array_npm.insert(0, self.dataset_name)
-                array_npm.insert(1, target_project)
-                array_npm.insert(2, self.percent_bugs)
-                array_npm.insert(3, name_ds)
-                array_npm.insert(4, scaler)
-        
-                cols = ['Dataset', 'Project', 'Percent_Bugs', 'DS', 'scaler',  'f1', 'auc', 'pf']
-                array_npm = pd.DataFrame([array_npm], columns=cols)         
-                performance_NPM.append(array_npm)
-                ds_data.append(array_npm)
-                aux.append(array_npm)
+        name_ds = string_ds[len(string_ds)-1]
+        print(name_ds)
+        if 'deslib' not in string_ds:
+          raise ValueError('Input dynamic selection technique invalid!')
+        for classifier in base_estimator:
+          for s in preprocessing:
+            for resampling in resample_strategy:
+              self._target_definition(target_project, self.dataset_total)
+              model, scaler = self._model_building(ds=ds, base_estimator=classifier,
+                                                  scaler=s, resample_strategy=None,
+                                                  dsel_size=dsel_size)
+              array_npm, array_epm = self._model_evaluating(model=model, scaler=scaler)
 
-                array_epm.insert(0, self.dataset_name)
-                array_epm.insert(1, target_project)
-                array_epm.insert(2, self.percent_bugs)
-                array_epm.insert(3, name_ds)
-                cols = ['Dataset', 'Project', 'Percent_Bugs', 'DS','IFA', 'PII20', 'PII1000', 'PII2000', 'CE20', 'CE1000', 'CE2000', 'Popt']
-                array_epm = pd.DataFrame([array_epm], columns=cols) 
-                epm_data.append(array_epm)
-                performance_EPM.append(array_epm)
-          epm_data = pd.concat(epm_data).reset_index(drop=True)
+              array_npm.insert(0, self.dataset_name)
+              array_npm.insert(1, target_project)
+              array_npm.insert(2, self.percent_bugs)
+              array_npm.insert(3, name_ds)
+              array_npm.insert(4, scaler)
+
+              cols = ['Dataset', 'Project', 'Percent_Bugs', 'DS', 'scaler',  'f1', 'auc', 'pf']
+              array_npm = pd.DataFrame([array_npm], columns=cols)         
+              performance_NPM.append(array_npm)
+              ds_data.append(array_npm)
+              aux.append(array_npm)
+
+              array_epm.insert(0, self.dataset_name)
+              array_epm.insert(1, target_project)
+              array_epm.insert(2, self.percent_bugs)
+              array_epm.insert(3, name_ds)
+              cols = ['Dataset', 'Project', 'Percent_Bugs', 'DS','IFA', 'PII20', 'PII1000', 'PII2000', 'CE20', 'CE1000', 'CE2000', 'Popt']
+              array_epm = pd.DataFrame([array_epm], columns=cols) 
+              performance_EPM.append(array_epm)
           
     performance_NPM = pd.concat(performance_NPM).sort_values(by='Percent_Bugs').reset_index(drop=True)
     dict_npm = dict()
