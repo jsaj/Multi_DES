@@ -370,7 +370,7 @@ class DSSC():
         The dynamic selection technique to fit and predict the target project.
         
         If None, then the dynamic selection technique is a
-        :class:`~deslib.des.KNORAU`.
+        :class:`~deslib.des.METADES`.
 
     base_estimator : object or list of base estimatos (Default = None)
         The base estimator used to generated the pool of classifiers. The base
@@ -453,7 +453,7 @@ class DSSC():
         The dynamic selection technique to fit and predict the target project.
         
         If None, then the dynamic selection technique is a
-        :class:`~deslib.des.KNORAU`.
+        :class:`~deslib.des.METADES`.
 
     base_estimator : object or list of base estimatos (Default = None)
         The base estimator used to generated the pool of classifiers. The base
@@ -498,7 +498,7 @@ class DSSC():
  
 
     if dynamic_algorithm == None:
-      dynamic_algorithm = [KNORAU()]
+      dynamic_algorithm = [METADES()]
     
     if type(base_estimator) != list and base_estimator != None:
       base_estimator = [base_estimator]
