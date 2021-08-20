@@ -39,6 +39,7 @@ class DSSC():
   
   """
 
+
   def __init__(self, url_dataset, with_PF=True):
 
     dataset_name = url_dataset.split('/')
@@ -355,7 +356,11 @@ class DSSC():
 
     return NPM, EPM
   
-  def _model_building(self, ds, base_estimator, scaler, resample_strategy, dsel_size):
+  def _model_building(self, ds,
+                     base_estimator,
+                     scaler,
+                     resample_strategy,
+                     dsel_size):
     """ Selecting the best model to predict the target project
 
     Parameters
@@ -433,7 +438,7 @@ class DSSC():
     
     return model, scaler
   
-  def dynamic_prediction(self, dynamic_algorithm=None,
+  def optimization_process(self, dynamic_algorithm=None,
                          base_estimator=None, preprocessing=None,
                          resample_strategy=None,
                          dsel_size=None):
