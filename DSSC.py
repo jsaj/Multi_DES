@@ -42,12 +42,12 @@ class DSSC():
   """
 
 
-  def __init__(self, url_dataset, save_dict, with_PF=True):
+  def __init__(self, url_dataset, save_directory, with_PF=True):
 
     dataset_name = url_dataset.split('/')
     self.dataset_name = dataset_name[len(dataset_name)-1]
     self.url_dataset = url_dataset + '/*'
-    self.save_dict = save_dict
+    self.save_directory = save_directory + '/'
 
     dataset_total = []
 
@@ -507,9 +507,11 @@ class DSSC():
       base_estimator = [LogisticRegression(solver='liblinear')]
 
     if preprocessing == None:
-      preprocessing = [preprocessing]
+      preprocessing = [MinMaxScaler()]
     elif type(preprocessing) != list and preprocessing != None:
-      preprocessing = [preprocessing]
+      raise ValueError('Value inputed for preprocessing is invalid. Accept only None or list with preprocessing algorithms.')
+    elif type(preprocessing) != list and preprocessing == None:
+      preprocessing = [preprocessing]   
 
     if resample_strategy == None:
       resample_strategy = [resample_strategy]
@@ -535,6 +537,12 @@ class DSSC():
           raise ValueError('Input dynamic selection technique invalid!')
         for classifier in base_estimator:
           for s in preprocessing:
+            string_scaler = str(type(s))
+            string_scaler = string_scaler.split("'")[1]
+            string_scaler = string_scaler.split(".")
+            name_scaler = string_scaler[len(string_scaler)-1]
+            if 'None' in name_scaler:
+              name_scaler = 'None'
             for resampling in resample_strategy:
               self._target_definition(target_project, self.dataset_total)
               model, scaler = self._model_building(ds=ds, base_estimator=classifier,
@@ -546,7 +554,7 @@ class DSSC():
               array_npm.insert(1, target_project)
               array_npm.insert(2, self.percent_bugs)
               array_npm.insert(3, name_ds)
-              array_npm.insert(4, scaler)
+              array_npm.insert(4, name_scaler)
 
               cols = ['Dataset', 'Project', 'Percent_Bugs', 'DS', 'scaler',  'f1', 'auc', 'pf']
               array_npm = pd.DataFrame([array_npm], columns=cols)         
@@ -556,12 +564,13 @@ class DSSC():
               array_epm.insert(1, target_project)
               array_epm.insert(2, self.percent_bugs)
               array_epm.insert(3, name_ds)
-              cols = ['Dataset', 'Project', 'Percent_Bugs', 'DS','IFA', 'PII20', 'PII1000', 'PII2000', 'CE20', 'CE1000', 'CE2000', 'Popt']
+              array_epm.insert(4, name_scaler)
+              cols = ['Dataset', 'Project', 'Percent_Bugs', 'DS', 'scaler', 'IFA', 'PII20', 'PII1000', 'PII2000', 'CE20', 'CE1000', 'CE2000', 'Popt']
               array_epm = pd.DataFrame([array_epm], columns=cols) 
               performance_EPM.append(array_epm)
           
     performance_NPM = pd.concat(performance_NPM).sort_values(by='Percent_Bugs').reset_index(drop=True)
-    performance_NPM.to_csv('{}/DSSC_NPM.csv'.format(self.save_dict))
+    performance_NPM.to_csv('{}/DSSC_NPM.csv'.format(self.save_directory))
     dict_npm = dict()
     for metric in list(['f1', 'auc', 'pf']):
       array = []
@@ -587,7 +596,7 @@ class DSSC():
     NPM = pd.concat([project_bugs, NPM], axis=1).reindex(project_bugs.index)
   
     performance_EPM = pd.concat(performance_EPM).reset_index(drop=True)
-    performance_EPM.to_csv('{}/DSSC_EPM.csv'.format(self.save_dict))
+    performance_EPM.to_csv('{}/DSSC_EPM.csv'.format(self.save_directory))
 
     dict_epm = dict()
     for metric in list(['IFA', 'PII20', 'PII1000', 'PII2000', 'CE20', 'CE1000', 'CE2000', 'Popt']):
