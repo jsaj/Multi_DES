@@ -69,7 +69,7 @@ Além disso, o seguinte comando é necessário para utilizar o método DSSC:
 
 .. code-block:: bash
 
-    !git clone https://github.com/jsaj/dssc.git
+    git clone https://github.com/jsaj/dssc.git
 
 Exemplo
 --------------
