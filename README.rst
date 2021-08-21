@@ -2,7 +2,7 @@ DSSC
 --------------
 
 DSSC é um método supervisionado que utilizada técnicas de seleção dinâmica para realizar a predição de defeitos entre projetos.
-Este método é centrado em técnicas da biblioteca **DESlib** [1]_, bem como algoritmos de aprendizagem de máquina disponíveis na API scikit-learn_ [2]_. 
+Este método é centrado em técnicas da biblioteca DESlib_ [1]_, bem como algoritmos de aprendizagem de máquina disponíveis na API scikit-learn_ [2]_. 
 
 Internamente, o DSSC requer que alguns processos sejam realizados antes do treinamento e predição. O DSSC requer o seguinte:
 
@@ -105,6 +105,6 @@ Além da predição com parâmetros padrões, o método DSSC aceita qualquer lis
 
 .. _scikit-learn: http://scikit-learn.org/stable/
 
-.. _GitHub: https://github.com/scikit-learn-contrib/DESlib
+.. _DESlib: https://github.com/scikit-learn-contrib/DESlib
 
 .. _example: https://github.com/jsaj/dssc/blob/master/example.ipynb
