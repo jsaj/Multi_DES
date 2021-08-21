@@ -46,7 +46,7 @@ Os resultados são armazenados em arquivos CSV. Vale ressaltar que, o DSSC não 
 Requisitos:
 -------------
 
-O DSSC foi testado para funcionar com Python 3.5 or maior. Os requisitos de dependências são:
+O DSSC foi testado para funcionar com Python 3.5 or maior. Os requisitos são:
 
 * scipy
 * numpy
