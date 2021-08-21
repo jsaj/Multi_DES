@@ -83,13 +83,16 @@ Aqui, mostramos um exemplo do DSSC com suas configurações padrões:
     import pandas as pd
     
     # dataset examples: AEEEM, NASA, PROMISE, RELINK
-    dataset = '.../dssc/Datasets/RELINK'
-
+    dataset = '/content/dssc/Datasets/RELINK'
+    
+    # directory to save results
+    save_directory = '/content/sample_data/Results'
+    
     # create object for defect prediction 
-    dssc_obj = DSSC(url_dataset=dataset)
+    dssc_obj = DSSC(url_dataset=dataset, save_directory=save_directory)
 
     # calculates and optimizes results in relation to NPM and EPM
-    npm, epm = dssc_obj.optimization_process()
+    npm, epm = dssc_obj.optimization_process(preprocessing=preprocessing)
 
     print(npm, '\n\n', epm)
 
