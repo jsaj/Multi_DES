@@ -24,7 +24,23 @@ O DSSC, considerando a natureza da previsão de defeitos entre projetos, é cent
     2. **Model Generating**, realiza a geração e treinamento do modelo
     3. **Model Evaluating**, processo de avaliação do modelo com as medidas de desempenho sem reconhecimento de esforço
 
+Um detalhe importante sobre a etapa de optimização é que, uma vez que o processamento, treinamento e avaliação são feitos, os resultados são tomados usando diferentes medidas de desempenho:
 
+* Medidas de Desempenho sem Reconhecimento de Esforço (EPMs – *Non-effort-aware Performance Measures*)
+    1. *F1-score*
+    2. *Área sob a curva (AUC)*
+    3. *Probabilidade de Alarme Falso (False Alarm - PF)*
+    
+* Medidas de Desempenho com Reconhecimento de Esforço (EPMs – *Effort-aware Performance Measures*)
+    1. *IFA*
+    2. *PII@20%*
+    3. *PII@1000*
+    4. *PII@2000*
+    5. *CostEffort@20%*
+    6. *CostEffort@1000*
+    7. *CostEffort@2000*
+    8. *P_opt*
+   
 Requisitos:
 -------------
 
@@ -84,10 +100,6 @@ Além da predição com parâmetros padrões, o método DSSC aceita qualquer lis
 .. [2] : F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay, “Scikit-learn: Machine learning in Python,” Journal of Machine Learning Research, vol. 12, pp. 2825–2830, 2011.
 
 .. [3] : S. Herbold, A. Trautsch, and J. Grabowski, “Global vs. local models for cross-project defect prediction,” Empirical software engineering, vol. 22, no. 4, pp. 1866–1902, 2017.
-
-.. [4] : R. M. O. Cruz, R. Sabourin, and G. D. Cavalcanti, “Dynamic classifier selection: Recent advances and perspectives,” Information Fusion, vol. 41, pp. 195 – 216, 2018.
-
-.. [5] : A. S. Britto, R. Sabourin, L. E. S. de Oliveira, Dynamic selection of classifiers - A comprehensive review, Pattern Recognition 47 (11) (2014) 3665–3680.
 
 .. _scikit-learn: http://scikit-learn.org/stable/
 
