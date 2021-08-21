@@ -42,12 +42,12 @@ class DSSC():
   """
 
 
-  def __init__(self, url_dataset, with_PF=True):
+  def __init__(self, url_dataset, save_dict, with_PF=True):
 
     dataset_name = url_dataset.split('/')
     self.dataset_name = dataset_name[len(dataset_name)-1]
     self.url_dataset = url_dataset + '/*'
-    # self.pf_has_been_called = False
+    self.save_dict = save_dict
 
     dataset_total = []
 
@@ -561,6 +561,7 @@ class DSSC():
               performance_EPM.append(array_epm)
           
     performance_NPM = pd.concat(performance_NPM).sort_values(by='Percent_Bugs').reset_index(drop=True)
+    performance_NPM.to_csv('{}/DSSC_NPM.csv'.format(self.save_dict))
     dict_npm = dict()
     for metric in list(['f1', 'auc', 'pf']):
       array = []
@@ -586,6 +587,7 @@ class DSSC():
     NPM = pd.concat([project_bugs, NPM], axis=1).reindex(project_bugs.index)
   
     performance_EPM = pd.concat(performance_EPM).reset_index(drop=True)
+    performance_EPM.to_csv('{}/DSSC_EPM.csv'.format(self.save_dict))
 
     dict_epm = dict()
     for metric in list(['IFA', 'PII20', 'PII1000', 'PII2000', 'CE20', 'CE1000', 'CE2000', 'Popt']):
