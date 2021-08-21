@@ -86,10 +86,10 @@ Aqui, mostramos um exemplo do DSSC com suas configurações padrões:
     dataset = '/content/dssc/Datasets/RELINK'
 
     # create object for defect prediction 
-    cpdp_model = DSSC(url_dataset=dataset)
+    dssc_obj = DSSC(url_dataset=dataset)
 
     # calculates and optimizes results in relation to NPM and EPM
-    npm, epm = cpdp_model.optimization_process()
+    npm, epm = dssc_obj.optimization_process()
 
     print(npm, '\n\n', epm)
 
