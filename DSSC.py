@@ -507,11 +507,11 @@ class DSSC():
       base_estimator = [LogisticRegression(solver='liblinear')]
 
     if preprocessing == None:
-      preprocessing = [MinMaxScaler()]
+      preprocessing = [preprocessing]
     elif type(preprocessing) != list and preprocessing != None:
       raise ValueError('Value inputed for preprocessing is invalid. Accept only None or list with preprocessing algorithms.')
     elif type(preprocessing) != list and preprocessing == None:
-      preprocessing = [preprocessing]   
+      preprocessing = [preprocessing]
 
     if resample_strategy == None:
       resample_strategy = [resample_strategy]
