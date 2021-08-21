@@ -1,5 +1,0 @@
-import pandas as pd
-
-df = pd.read_csv('https://raw.githubusercontent.com/jsaj/ml/master/Datasets/RELINK/Apache.csv')
-df
-
