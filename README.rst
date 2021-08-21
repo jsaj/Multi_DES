@@ -17,16 +17,16 @@ Como funciona?
 
 O DSSC, considerando a natureza da previsão de defeitos entre projetos, é centrado em algumas etapas principais, tais como:
 
-* **Project Filtering phase**, cada projeto e suas *n* versões são verificadas se possuem o número mínimo de instâncias
+1. **Project Filtering phase**, cada projeto e suas *n* versões são verificadas se possuem o número mínimo de instâncias
 
-* Optimization Process phase
+2. Optimization Process phase
     1. **Target Definition**, cada projeto apto à predição é definido como conjunto de teste, enquanto os demais são atribuídos ao conjunto de treinamento seguindo o cenário *strict* CPDP [3]_
     2. **Model Generating**, realiza a geração e treinamento do modelo
     3. **Model Evaluating**, processo de avaliação do modelo com as medidas de desempenho sem reconhecimento de esforço
 
 Um detalhe importante sobre a etapa de optimização é que, uma vez que o processamento, treinamento e avaliação são feitos, os resultados são tomados usando diferentes medidas de desempenho:
 
-* Medidas de Desempenho sem Reconhecimento de Esforço (EPMs – *Non-effort-aware Performance Measures*)
+* Medidas de Desempenho sem Reconhecimento de Esforço (NPMs – *Non-effort-aware Performance Measures*)
     1. *F1-score*
     2. *Área sob a curva (AUC)*
     3. *Probabilidade de Alarme Falso (False Alarm - PF)*
@@ -39,8 +39,10 @@ Um detalhe importante sobre a etapa de optimização é que, uma vez que o proce
     5. *CostEffort@20%*
     6. *CostEffort@1000*
     7. *CostEffort@2000*
-    8. *P_opt*
-   
+    8. *Popt*
+
+Os resultados são armazenados em arquivos CSV. Vale ressaltar que, o DSSC não realiza uma avaliação adicional dos resultados. Portanto, isso precisa ser criado por scripts externos; esta abordagem apenas realiza a geração de resultados usando diferentes configurações experimentais.
+
 Requisitos:
 -------------
 
