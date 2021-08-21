@@ -8,7 +8,7 @@ Internamente, o DSSC requer que alguns processos sejam realizados antes do trein
 
 1. Local onde os dados do experimento são armazenados
 2. Pré-processamentos dos dados devem seguir uma definição preestabelecida
- * Dado que este método busca predizer se um determinado projeto é ou não defeituoso, o processo de predição requer que os dados possuam apenas dois rótulos, defeito e não defeito, ou seja, opera somente com dados binários. Além disso, requer que as algumas *features* (colunas) dos dados sigam uma sequência predefinida, isto é, *bug label* e LOC (linha de código – *Lines of Code*) na primeira e segunda coluna, respectivamente. Para mais detalhes, verificar a página example_
+ * Dado que este método busca predizer se um determinado projeto é ou não defeituoso, o processo de predição requer que os dados possuam apenas dois rótulos, defeito e não defeito, ou seja, opera somente com dados binários. Além disso, é necessário que as algumas *features* (colunas) dos dados sigam uma sequência predefinida, isto é, *bug label* e LOC (linha de código – *Lines of Code*) na primeira e segunda coluna, respectivamente. Para mais detalhes, verificar a página example_
 3. O treinamento e avaliação de modelos de previsão
  * É possível treinar e avaliar várias técnicas de seleção dinâmica, bem como utilizar diversos algoritmos de aprendizagem de máquina. Então, todos os modelos gerados usam as mesmas etapas de processamento de dados, treinamento e avaliação
 
@@ -46,7 +46,7 @@ Os resultados são armazenados em arquivos CSV. Vale ressaltar que, o DSSC não 
 Requisitos:
 -------------
 
-O DSSC foi testado para funcionar com Python 3.5 or maior. Os requisitos são:
+O DSSC foi testado para funcionar com Python 3.5 ou maior. Os requisitos são:
 
 * scipy
 * numpy
@@ -83,7 +83,7 @@ Aqui, mostramos um exemplo do DSSC com suas configurações padrões:
     import pandas as pd
     
     # dataset examples: AEEEM, NASA, PROMISE, RELINK
-    dataset = '/content/dssc/Datasets/RELINK'
+    dataset = '.../dssc/Datasets/RELINK'
 
     # create object for defect prediction 
     dssc_obj = DSSC(url_dataset=dataset)
