@@ -93,7 +93,7 @@ Aqui, mostramos um exemplo do DSSC com suas configurações padrões:
 
     print(npm, '\n\n', epm)
 
-Além da predição com parâmetros padrões, o método DSSC aceita qualquer lista de técnicas de seleção dinâmica (do deslib) e lista de classificadores (do scikit-learn) como entrada, incluindo uma lista contendo diferentes métodos de preprocessamento (do scikit-learn). Mais exemplos para usar a API podem ser encontrados na página de examples_.
+Além da predição com parâmetros padrões, o método DSSC aceita qualquer lista de técnicas de seleção dinâmica (do deslib) e lista de classificadores (do scikit-learn) como entrada, incluindo uma lista contendo diferentes métodos de preprocessamento (do scikit-learn). Mais exemplos para usar a API podem ser encontrados na página de example_.
 
 # References
 -----------
