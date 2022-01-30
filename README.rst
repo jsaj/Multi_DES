@@ -27,12 +27,12 @@ The DSSC, considering the nature of cross-project defect prediction, is centered
      3. *False Alarm Probability (PF)*
     
 
-Os resultados são armazenados em arquivos CSV. Vale ressaltar que, o DSSC não realiza uma avaliação adicional dos resultados. Portanto, isso precisa ser criado por scripts externos; esta abordagem apenas realiza a geração de resultados usando diferentes configurações experimentais.
+Results are stored in CSV files. It is worth mentioning that the DSSC does not carry out an additional evaluation of the results. So this needs to be created by external scripts; this approach only performs the generation of results using different experimental setups.
 
-Requisitos:
+Requirements:
 -------------
 
-O DSSC foi testado para funcionar com Python 3.5 ou maior. Os requisitos são:
+DSSC has been tested to work with Python 3.5 or greater. The requirements are:
 
 * scipy
 * numpy
@@ -76,7 +76,7 @@ Aqui, mostramos um exemplo do DSSC com suas configurações padrões:
 
     print(npm, '\n\n', epm)
 
-Além da predição com parâmetros padrões, o método DSSC aceita qualquer lista de técnicas de seleção dinâmica (do deslib) e lista de classificadores (do scikit-learn) como entrada, incluindo uma lista contendo diferentes métodos de preprocessamento (do scikit-learn). Mais exemplos para usar a API podem ser encontrados na página de example_.
+In addition to prediction with default parameters, the DSSC method accepts any list of dynamic selection techniques (from deslib) and list of classifiers (from scikit-learn) as input, including a list containing different preprocessing methods (from scikit-learn). More examples for using the API can be found on the example_ page.
 
 # Referências
 -----------
