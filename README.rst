@@ -1,45 +1,31 @@
 DSSC
 --------------
+DSSC is a supervised method that uses dynamic selection techniques to perform cross-project defect prediction. This method is centered on techniques from the DESlib_[1]_ library, as well as machine learning algorithms available in the scikit-learn_[2]_ API.
 
-DSSC é um método supervisionado que utilizada técnicas de seleção dinâmica para realizar a predição de defeitos entre projetos.
-Este método é centrado em técnicas da biblioteca DESlib_ [1]_, bem como algoritmos de aprendizagem de máquina disponíveis na API scikit-learn_ [2]_. 
+Internally, DSSC requires some processes to be performed before training and prediction. DSSC requires the following:
 
-Internamente, o DSSC requer que alguns processos sejam realizados antes do treinamento e predição. O DSSC requer o seguinte:
-
-1. Local onde os dados do experimento são armazenados
-2. Pré-processamentos dos dados devem seguir uma definição preestabelecida
- * Dado que este método busca predizer se um determinado projeto é ou não defeituoso, o processo de predição requer que os dados possuam apenas dois rótulos, defeito e não defeito, ou seja, opera somente com dados binários. Além disso, é necessário que as algumas *features* (colunas) dos dados sigam uma sequência predefinida, isto é, *bug label* e LOC (linha de código – *Lines of Code*) na primeira e segunda coluna, respectivamente. Para mais detalhes, verificar a página example_
-3. O treinamento e avaliação de modelos de previsão
- * É possível treinar e avaliar várias técnicas de seleção dinâmica, bem como utilizar diversos algoritmos de aprendizagem de máquina. Então, todos os modelos gerados usam as mesmas etapas de processamento de dados, treinamento e avaliação
-
-Como funciona?
+1. Location where experiment data is stored;
+2. Data pre-processing must follow a pre-established definition
+ * Since this method seeks to predict whether a given project is defective or not, the prediction process requires that the data have only two labels, defect and non-defect, i.e, it operates only with binary data. Also, feature *bug label* must be in the first column. For more details, check out the example_ page
+ 
+3. Training and evaluation
+ * It is possible to use different parameters: dynamic selection techniques, different machine learning algorithms and different variations in the size of the *pool* for classifiers. So, all generated models use the same data processing, training and evaluation steps.
+ 
+How it works?
 --------------
 
-O DSSC, considerando a natureza da previsão de defeitos entre projetos, é centrado em algumas etapas principais, tais como:
+The DSSC, considering the nature of cross-project defect prediction, is centered on a few key steps, such as:
 
-1. **Project Filtering phase**, cada projeto e suas *n* versões são verificadas se possuem o número mínimo de instâncias
+1. **Target Definition**, each project is defined as a test set, while the others are assigned to the training set following the *strict* CPDP scenario [3]_
+2. **Overproduction**, consists of defining a competent predictive model by training set to classify the test data.
+3. **Model Evaluating**, model evaluation process with performance evaluation metricsnho.
 
-2. Optimization Process phase
-    1. **Target Definition**, cada projeto apto à predição é definido como conjunto de teste, enquanto os demais são atribuídos ao conjunto de treinamento seguindo o cenário *strict* CPDP [3]_
-    2. **Model Generating**, realiza a geração e treinamento do modelo
-    3. **Model Evaluating**, processo de avaliação do modelo com as medidas de desempenho sem reconhecimento de esforço
+* Performance evaluation metrics
 
-Um detalhe importante sobre a etapa de optimização é que, uma vez que o processamento, treinamento e avaliação são feitos, os resultados são tomados usando diferentes medidas de desempenho:
-
-* Medidas de Desempenho sem Reconhecimento de Esforço (NPMs – *Non-effort-aware Performance Measures*)
-    1. *F1-score*
-    2. *Área sob a curva (AUC)*
-    3. *Probabilidade de Alarme Falso (False Alarm - PF)*
+     1. *F1-score*
+     2. *Area under the curve ROC (ROC-AUC)*
+     3. *False Alarm Probability (PF)*
     
-* Medidas de Desempenho com Reconhecimento de Esforço (EPMs – *Effort-aware Performance Measures*)
-    1. *IFA*
-    2. *PII@20%*
-    3. *PII@1000*
-    4. *PII@2000*
-    5. *CostEffort@20%*
-    6. *CostEffort@1000*
-    7. *CostEffort@2000*
-    8. *Popt*
 
 Os resultados são armazenados em arquivos CSV. Vale ressaltar que, o DSSC não realiza uma avaliação adicional dos resultados. Portanto, isso precisa ser criado por scripts externos; esta abordagem apenas realiza a geração de resultados usando diferentes configurações experimentais.
 
@@ -58,12 +44,6 @@ Essas dependências são instaladas automaticamente usando os comandos pip abaix
 
 Instalação
 --------------
-
-O DSSC requer, principalmente, do pacote deslib instalado usando o comando pip:
-
-.. code-block:: bash
-
-    pip install deslib
  
 Além disso, o seguinte comando é necessário para utilizar o método DSSC:
 
