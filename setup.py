@@ -21,7 +21,7 @@ setup(name='DSSC',
       long_description=README,
       author='Juscelino S. A. Júnior',
       author_email='j.jr.avelino@gmail.com',
-      license='BSD 3-clause "New" or "Revised License"',
+      license='MIT',
 
       classifiers=[
           'Development Status :: 3 - Alpha',
