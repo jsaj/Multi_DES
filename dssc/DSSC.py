@@ -2,7 +2,6 @@
 
 # Author: Juscelino S. Avelino Júnior <j.jr.avelino@gmail.com>
 #
-# License: BSD 3 clause
 
 from glob import glob
 import pandas as pd
