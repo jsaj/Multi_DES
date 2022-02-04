@@ -11,8 +11,7 @@ with codecs.open(os.path.join(setup_path, 'README.rst'), encoding='utf-8-sig') a
     README = f.read()
 
 setup(name='DSSC',
-      name='DSSC',
-      packages=['DSSC'],
+      packages=['dssc'],
       version='0.0.1',
       url='https://github.com/jsaj/DSSC',
       maintainer='Juscelino S. A. Júnior',
