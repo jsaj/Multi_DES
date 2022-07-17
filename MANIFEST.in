@@ -1,0 +1,7 @@
+include *.rst
+include CONTRIBUTING.md
+include LICENSE.txt
+include requirements.txt
+
+recursive-include examples *.py
+recursive-include docs *.rst conf.py *.css Makefile make.bat
