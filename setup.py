@@ -10,8 +10,8 @@ setup_path = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(setup_path, 'README.rst'), encoding='utf-8-sig') as f:
     README = f.read()
 
-setup(name='DESlib',
-      version='0.1.dev',
+setup(name='DSSC',
+      version='0.1',
       url='https://github.com/jsaj/DSSC',
       maintainer='Juscelino S. A. Júnior',
       maintainer_email='j.jr.avelino@gmail.com',
