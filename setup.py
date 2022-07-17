@@ -34,9 +34,11 @@ setup(name='DSSC',
           'Topic :: Scientific/Engineering :: Artificial Intelligence',
       ],
       install_requires=[
-          'scikit-learn>=0.21.0',
-          'numpy>=1.17.0',
-          'scipy>=1.4.0',
+          scipy>=1.4.1,
+          numpy>=1.21.6,
+          scikit-learn>=1.0.2,
+          deslib>=0.3.5,
+          glob>=0.7
       ],
       python_requires='>=3',      
 
