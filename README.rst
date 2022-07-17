@@ -2,7 +2,7 @@
 DSSC
 ========
 
-DSSC is a supervised method that uses dynamic selection techniques to perform cross-project defect prediction. This method is centered on techniques from the DESlib [1]_ library, as well as machine learning algorithms available in the scikit-learn_[2]_ API.
+DSSC is a supervised method that uses dynamic selection techniques to perform cross-project defect prediction. This method is centered on techniques from the DESlib [1]_ library, as well as machine learning algorithms available in the scikit-learn_ API.
 
 Internally, DSSC requires some processes to be performed before training and prediction. DSSC requires the following:
 
