@@ -37,7 +37,7 @@ Requirements:
 DSSC has been tested to work with Python 3.5 or greater. The requirements are:
 
 * scipy(>=1.4.1)
-* numpy
+* numpy(>=1.21.6)
 * scikit-learn(>=1.0.2)
 * deslib(>=0.3.5)
 * glob(>=0.7)
