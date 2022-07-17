@@ -18,7 +18,7 @@ How it works?
 
 The DSSC, considering the nature of cross-project defect prediction, is centered on a few key steps, such as:
 
-1. **Target Definition**, each project is defined as a test set, while the others are assigned to the training set following the *strict* CPDP scenario [3]_
+1. **Target Definition**, each project is defined as test, while the others are assigned to the training set following the *strict* CPDP scenario [3]_
 2. **Overproduction**, consists of defining a competent predictive model by training set to classify the test data.
 3. **Model Evaluating**, model evaluation process with performance evaluation metricsnho.
 
@@ -36,27 +36,36 @@ Requirements:
 
 DSSC has been tested to work with Python 3.5 or greater. The requirements are:
 
-* scipy
+* scipy(>=1.4.1)
 * numpy
-* scikit-learn
-* deslib
-* glob
+* scikit-learn(>=1.0.2)
+* deslib(>=0.3.5)
+* glob(>=0.7)
 
-Essas dependências são instaladas automaticamente usando os comandos pip abaixo.
+These dependencies are automatically installed using the pip commands above.
 
-Instalação
---------------
- 
-Além disso, o seguinte comando é necessário para utilizar o método DSSC:
+Installation:
+-------------
+
+The package can be installed using pip:
+
+Stable version:
+
+.. code-block:: bash
+
+    pip install dssc
+
+Latest version (under development):
 
 .. code-block:: bash
 
     git clone https://github.com/jsaj/dssc.git
+    
 
-Exemplo
+Examples
 --------------
 
-Aqui, mostramos um exemplo do DSSC com suas configurações padrões:
+Here we show an example using the DSSC with default parameters:
 
 .. code-block:: python
 
