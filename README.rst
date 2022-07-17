@@ -1,27 +1,7 @@
-.. image:: https://readthedocs.org/projects/deslib/badge/?version=latest
-    :target: http://deslib.readthedocs.io/en/latest/?badge=latest
-    :alt: Documentation Status
 
-.. image:: https://circleci.com/gh/scikit-learn-contrib/DESlib.svg?style=shield
-    :target: https://circleci.com/gh/scikit-learn-contrib/DESlib
+DSSC
+========
 
-.. image:: https://travis-ci.org/scikit-learn-contrib/DESlib.svg?branch=master
-    :target: https://travis-ci.org/scikit-learn-contrib/DESlib
-
-.. image:: https://codecov.io/gh/scikit-learn-contrib/DESlib/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/scikit-learn-contrib/DESlib
-    
-.. image:: https://api.codacy.com/project/badge/Grade/59500eecc5524c59b9eb2284b43ae3e6
-   :alt: Codacy Badge
-   :target: https://app.codacy.com/app/Menelau/DESlib?
-
-.. image:: https://img.shields.io/badge/License-BSD%203--Clause-blue.svg
-    :target: https://opensource.org/licenses/BSD-3-Clause
-
-.. image:: https://badges.gitter.im/DESlib/gitter.png
-    :target: https://gitter.im/deslib/Lobby
-    DSSC
---------------
 DSSC is a supervised method that uses dynamic selection techniques to perform cross-project defect prediction. This method is centered on techniques from the DESlib [1]_ library, as well as machine learning algorithms available in the scikit-learn_[2]_ API.
 
 Internally, DSSC requires some processes to be performed before training and prediction. DSSC requires the following:
@@ -100,7 +80,7 @@ Aqui, mostramos um exemplo do DSSC com suas configurações padrões:
 
 In addition to prediction with default parameters, the DSSC method accepts any list of dynamic selection techniques (from deslib) and list of classifiers (from scikit-learn) as input, including a list containing different preprocessing methods (from scikit-learn). More examples for using the API can be found on the example_ page.
 
-# Referências
+References:
 -----------
 .. [1] : Rafael M. O. Cruz, Luiz G. Hafemann, Robert Sabourin and George D. C. Cavalcanti DESlib: A Dynamic ensemble selection library in Python. arXiv preprint arXiv:1802.04967 (2018).
 
