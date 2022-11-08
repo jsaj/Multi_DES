@@ -1,10 +1,10 @@
 
-DSSC
+MDS-CPDP
 ========
 
-DSSC is a supervised method that uses dynamic selection techniques to perform cross-project defect prediction. This method is centered on techniques from the DESlib [1]_ library, as well as machine learning algorithms available in the scikit-learn_ API.
+MDS-CPDP is a supervised method that uses dynamic selection techniques to perform cross-project defect prediction. This method is centered on techniques from the DESlib [1]_ library, as well as machine learning algorithms available in the scikit-learn_ API.
 
-Internally, DSSC requires some processes to be performed before training and prediction. DSSC requires the following:
+Internally, MDS-CPDP requires some processes to be performed before training and prediction. DSSC requires the following:
 
 1. Location where experiment data is stored;
 2. Data pre-processing must follow a pre-established definition
@@ -16,7 +16,7 @@ Internally, DSSC requires some processes to be performed before training and pre
 How it works?
 --------------
 
-The DSSC, considering the nature of cross-project defect prediction, is centered on a few key steps, such as:
+The MDS-CPDP, considering the nature of cross-project defect prediction, is centered on a few key steps, such as:
 
 1. **Target Definition**, each project is defined as test, while the others are assigned to the training set following the *strict* CPDP scenario [3]_
 2. **Overproduction**, consists of defining a competent predictive model by training set to classify the test data.
@@ -53,23 +53,23 @@ Stable version:
 
 .. code-block:: bash
 
-    pip install dssc
+    pip install mdscpdp
 
 Latest version (under development):
 
 .. code-block:: bash
 
-    git clone https://github.com/jsaj/dssc.git
+    git clone https://github.com/jsaj/mds_cpdp.git
     
 
 Examples
 --------------
 
-Here we show an example using the DSSC with default parameters:
+Here we show an example using the MDS-CPDP with default parameters:
 
 .. code-block:: python
 
-    from dssc.DSSC import DSSC
+    from mdscpdp.MDSCPDP import MDSCPDP
     import numpy as np
     import pandas as pd
     
@@ -80,7 +80,7 @@ Here we show an example using the DSSC with default parameters:
     save_directory = '/content/sample_data/Results'
     
     # create object for defect prediction 
-    dssc_obj = DSSC(url_dataset=dataset, save_directory=save_directory)
+    dssc_obj = MDSCPDP(url_dataset=dataset, save_directory=save_directory)
 
     # calculates and optimizes results in relation to NPM and EPM
     npm, epm = dssc_obj.optimization_process(preprocessing=preprocessing)
