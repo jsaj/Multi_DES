@@ -4,7 +4,7 @@ MDS-CPDP
 
 MDS-CPDP is a supervised method that uses dynamic selection techniques to perform cross-project defect prediction. This method is centered on techniques from the DESlib [1]_ library, as well as machine learning algorithms available in the scikit-learn_ API.
 
-Internally, MDS-CPDP requires some processes to be performed before training and prediction. DSSC requires the following:
+Internally, MDS-CPDP requires some processes to be performed before training and prediction. MDS-CPDP requires the following:
 
 1. Location where experiment data is stored;
 2. Data pre-processing must follow a pre-established definition
@@ -20,7 +20,8 @@ The MDS-CPDP, considering the nature of cross-project defect prediction, is cent
 
 1. **Target Definition**, each project is defined as test, while the others are assigned to the training set following the *strict* CPDP scenario [3]_
 2. **Overproduction**, consists of defining a competent predictive model by training set to classify the test data.
-3. **Model Evaluating**, model evaluation process with performance evaluation metricsnho.
+3. **Selection**, model evaluation process with performance evaluation metrics.
+4. **Model Evaluating**, model evaluation process with performance evaluation metrics.
 
 * Performance evaluation metrics
 
