@@ -10,12 +10,12 @@ setup_path = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(setup_path, 'README.rst'), encoding='utf-8-sig') as f:
     README = f.read()
 
-setup(name='DSSC',
-      version='0.1',
-      url='https://github.com/jsaj/DSSC',
+setup(name='MDS-CPDP',
+      version='0.1.dev',
+      url='https://github.com/jsaj/MDS-CPDP',
       maintainer='Juscelino S. A. Júnior',
       maintainer_email='j.jr.avelino@gmail.com',
-      description='Implementation of approach to Cross-Project Defect Prediction with Dynamic Ensemble Selection methods',
+      description='Implementation of approach to Multi-stage Dynamic Selection for Cross-Project Defect Prediction',
       long_description=README,
       long_description_content_type="text/markdown",  # README.md is of type 'markdown'
       author='Juscelino S. A. Júnior',
