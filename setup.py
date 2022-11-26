@@ -10,9 +10,9 @@ setup_path = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(setup_path, 'README.rst'), encoding='utf-8-sig') as f:
     README = f.read()
 
-setup(name='MDS-CPDP',
+setup(name='MDSCPDP',
       version='0.1.dev',
-      url='https://github.com/jsaj/MDS-CPDP',
+      url='https://github.com/jsaj/MDSCPDP',
       maintainer='Juscelino S. A. Júnior',
       maintainer_email='j.jr.avelino@gmail.com',
       description='Implementation of approach to Multi-stage Dynamic Selection for Cross-Project Defect Prediction',
