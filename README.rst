@@ -110,4 +110,4 @@ References:
 
 .. _DESlib: https://github.com/scikit-learn-contrib/DESlib
 
-.. _example: https://github.com/jsaj/MDS_CPDP/blob/master/example_base.ipynb
+.. _example: https://github.com/jsaj/MDS_CPDP/blob/master/examples/example_base.ipynb
