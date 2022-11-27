@@ -18,10 +18,9 @@ How it works?
 
 The MDS-CPDP, considering the nature of cross-project defect prediction, is centered on a few key steps, such as:
 
-1. **Target Definition**, each project is defined as test, while the others are assigned to the training set following the *strict* CPDP scenario [3]_
-2. **Overproduction**, consists of defining a competent predictive model by training set to classify the test data.
-3. **Selection**, model evaluation process with performance evaluation metrics.
-4. **Model Evaluating**, model evaluation process with performance evaluation metrics.
+1. **Overproduction**, based on the training set, n models are generated using a series of parameters: dynamic selection techniques, base classifiers and sizes of pool of classifiers
+2. **Selection**, consists of defining a competent predictive model by training set to classify the test data.
+3. **Model Evaluating**, model evaluation process with performance evaluation metrics.
 
 * Performance evaluation metrics
 
