@@ -29,12 +29,12 @@ The MDS-CPDP, considering the nature of cross-project defect prediction, is cent
      3. *False Alarm Probability (PF)*
     
 
-Results are stored in CSV files. It is worth mentioning that the DSSC does not carry out an additional evaluation of the results. So this needs to be created by external scripts; this approach only performs the generation of results using different experimental setups.
+Results are stored in CSV files. It is worth mentioning that the MDS-CPDP does not carry out an additional evaluation of the results. So this needs to be created by external scripts; this approach only performs the generation of results using different experimental setups.
 
 Requirements:
 -------------
 
-DSSC has been tested to work with Python 3.5 or greater. The requirements are:
+MDS-CPDP has been tested to work with Python 3.5 or greater. The requirements are:
 
 * scipy(>=1.4.1)
 * numpy(>=1.21.6)
@@ -110,4 +110,4 @@ References:
 
 .. _DESlib: https://github.com/scikit-learn-contrib/DESlib
 
-.. _example: https://github.com/jsaj/dssc/blob/master/example.ipynb
+.. _example: https://github.com/jsaj/MDS_CPDP/blob/master/example_base.ipynb
