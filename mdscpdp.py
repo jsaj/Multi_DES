@@ -50,14 +50,14 @@ class MDSCPDP(object):
     
     if type(dynamic_algorithm) != list and dynamic_algorithm == None:
       dynamic_algorithm = [KNORAU()]
-    else:
+    if type(dynamic_algorithm) != list:
       dynamic_algorithm = [dynamic_algorithm]
     
     if type(base_estimator) != list and base_estimator != None:
       base_estimator = [base_estimator]
     elif base_estimator == None:
       base_estimator = [GaussianNB()]
-    else:
+    elif type(base_estimator) != list:
       base_estimator = [base_estimator]
 
     if selection_approach == None:
@@ -108,7 +108,7 @@ class MDSCPDP(object):
 
       defective = np.count_nonzero(np.array(test[test.columns[0]]) == 1)
 
-      percent_bugs =  (defective / len(test)) * 100
+      percent_bugs =  round((defective / len(test)) * 100, 2)
 
 
       vector_models, _ = self._Overproduction(train,
@@ -194,7 +194,7 @@ class MDSCPDP(object):
  
     if selected == False:
       result = []
-
+      
       for name_ds in dynamic_algorithms:
         for name_clf in base_classifiers:
           for m in size_pool:
