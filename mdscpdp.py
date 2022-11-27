@@ -86,6 +86,7 @@ class MDSCPDP(object):
       dynamic_algorithms_dict[name_ds] = ds
  
     performances = []
+    vector_models = []
     for target in list(np.unique(bug_dataset['productName'])):
       
       # remove numbers
@@ -111,12 +112,12 @@ class MDSCPDP(object):
       percent_bugs =  round((defective / len(test)) * 100, 2)
 
 
-      vector_models, _ = self._Overproduction(train,
+      models_train, _ = self._Overproduction(train,
                                            dynamic_algorithms=dynamic_algorithms_dict,
                                            base_classifiers=base_classifiers_dict,
                                            size_pool=size_pool)
-      
-      best_hyperparameter = self._selection(vector_models, selection_approach)
+      vector_models.append(models_train)
+      best_hyperparameter = self._selection(models_train, selection_approach)
 
       best_model, scaler = self._Overproduction(train,
                                            dynamic_algorithms=dynamic_algorithms_dict[best_hyperparameter.split('-')[0]],
@@ -136,7 +137,9 @@ class MDSCPDP(object):
 
       cols = ['productName', 'percentBugs', 'dynamic_selection', 'classifier', 'size_pool', 'fscore', 'auc', 'pf', 'gmean', 'precision', 'recall', 'accuracy', 'tn', 'fp', 'fn', 'tp']
       performances.append(DataFrame([evaluations], columns=cols))
+    self.vector_models = pd.concat(vector_models).reset_index(drop=True)
     self.performances = pd.concat(performances).reset_index(drop=True)
+
   def _model_evaluating(self, test, model, scaler):
     
 
