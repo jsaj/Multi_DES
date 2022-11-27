@@ -48,47 +48,56 @@ These dependencies are automatically installed using the pip commands above.
 Installation:
 -------------
 
-The package can be installed using pip:
-
-Stable version:
-
-.. code-block:: bash
-
-    pip install mdscpdp
+The package can be installed using:
 
 Latest version (under development):
 
 .. code-block:: bash
 
-    git clone https://github.com/jsaj/mds_cpdp.git
+    !git clone https://github.com/jsaj/mds_cpdp.git
+
+Also, need install deslib:
+
+.. code-block:: bash
+
+    !pip install deslib
     
 
-Examples
+Example
 --------------
 
-Here we show an example using the MDS-CPDP with default parameters:
+Here we show an example using the MDS-CPDP with default parameters.
+We used the Google Colaboratory environment to run the experiments, so:
 
 .. code-block:: python
+    
+    from MDS_CPDP.mdscpdp import MDSCPDP
 
-    from mdscpdp.MDSCPDP import MDSCPDP
-    import numpy as np
     import pandas as pd
-    
-    # dataset examples: AEEEM, NASA, PROMISE, RELINK
-    dataset = '/content/dssc/Datasets/RELINK'
-    
-    # directory to save results
-    save_directory = '/content/sample_data/Results'
-    
-    # create object for defect prediction 
-    dssc_obj = MDSCPDP(url_dataset=dataset, save_directory=save_directory)
+    from glob import glob
 
-    # calculates and optimizes results in relation to NPM and EPM
-    npm, epm = dssc_obj.optimization_process(preprocessing=preprocessing)
+    import warnings
+    warnings.filterwarnings("ignore")
 
-    print(npm, '\n\n', epm)
+    # path of datasets to predict
+    path = '/content/MDS_CPDP/benchmark-execution/benchmarks/datasets/RELINK/*'
 
-In addition to prediction with default parameters, the DSSC method accepts any list of dynamic selection techniques (from deslib) and list of classifiers (from scikit-learn) as input, including a list containing different preprocessing methods (from scikit-learn). More examples for using the API can be found on the example_ page.
+    # read and create dataframe (dataset) with all projects for predict
+    dataset = []
+    for project_url in glob(path):
+      productName = project_url.split('/')[len(project_url.split('/'))-1]
+      df = pd.read_csv(project_url)
+      df.insert(0, 'productName', productName)
+      dataset.append(df)
+    dataset = pd.concat(dataset).reset_index(drop=True)
+
+    #create MDSCPDP object to predict dataset
+    obj = MDSCPDP(dataset)
+
+    #get MDSCPDP performance after predict the dataset. Return a pandas dataframe
+    obj.performances
+
+In addition to prediction with default parameters, the MDS-CPDP method accepts any list of dynamic selection techniques (from deslib) and list of classifiers (from scikit-learn) as input, including a list containing different size for pool of classifier.
 
 References:
 -----------
