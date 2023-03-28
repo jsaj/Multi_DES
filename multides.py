@@ -31,8 +31,9 @@ from imblearn.metrics import geometric_mean_score
 from sklearn.exceptions import ConvergenceWarning
 from sklearn.metrics import confusion_matrix
 
-class MDSCPDP(object):
-  """Class for Multi-stage Dynamic Selection for Cross-Project Defect Prediction (MDS-CPDP).
+class MULTIDES(object):
+  """Class for Multi-stage Dynamic Ensemble Selection (Multi-DES) for Cross-Project
+Defect Prediction.
 
   References
   ----------
