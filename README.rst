@@ -1,10 +1,10 @@
 
-MDS-CPDP
+Multi-DES
 ========
 
-MDS-CPDP is a supervised method that uses dynamic selection techniques to perform cross-project defect prediction. This method is centered on techniques from the DESlib [1]_ library, as well as machine learning algorithms available in the scikit-learn_ API.
+Multi-DES uses a multi-stage strategy that optimizes the parameters of the dynamic selection algorithms during the training stage to perform cross-project defect prediction. This method is centered on techniques from the DESlib [1]_ library, as well as machine learning algorithms available in the scikit-learn_ API.
 
-Internally, MDS-CPDP requires some processes to be performed before training and prediction. MDS-CPDP requires the following:
+Internally, Multi-DES requires some processes to be performed before training and prediction. Multi-DES requires the following:
 
 1. Location where experiment data is stored;
 2. Data pre-processing must follow a pre-established definition
@@ -16,25 +16,24 @@ Internally, MDS-CPDP requires some processes to be performed before training and
 How it works?
 --------------
 
-The MDS-CPDP, considering the nature of cross-project defect prediction, is centered on a few key steps, such as:
+The Multi-DES, considering the nature of cross-project defect prediction, is centered on a few key steps, such as:
 
 1. **Overproduction**, based on the training set, n models are generated using a series of parameters: dynamic selection techniques, base classifiers and sizes of pool of classifiers
-2. **Selection**, consists of defining a competent predictive model by training set to classify the test data.
-3. **Model Evaluating**, model evaluation process with performance evaluation metrics.
+2. **Best configuration selection**, consists of defining a competent predictive model by training set to classify the test data.
+3. **Prediction**, model evaluation process with performance evaluation metrics.
 
 * Performance evaluation metrics
-
      1. *F1-score*
      2. *Area under the curve ROC (ROC-AUC)*
      3. *False Alarm Probability (PF)*
     
 
-Results are stored in CSV files. It is worth mentioning that the MDS-CPDP does not carry out an additional evaluation of the results. So this needs to be created by external scripts; this approach only performs the generation of results using different experimental setups.
+Results are stored in CSV files. It is worth mentioning that the Multi-DES does not carry out an additional evaluation of the results. So this needs to be created by external scripts; this approach only performs the generation of results using different experimental setups.
 
 Requirements:
 -------------
 
-MDS-CPDP has been tested to work with Python 3.5 or greater. The requirements are:
+Multi-DES has been tested to work with Python 3.5 or greater. The requirements are:
 
 * scipy(>=1.4.1)
 * numpy(>=1.21.6)
@@ -70,7 +69,7 @@ We used the Google Colaboratory environment to run the experiments, so:
 
 .. code-block:: python
     
-    from MDS_CPDP.mdscpdp import MDSCPDP
+    from Multi_DES.multides import MULTIDES
 
     import pandas as pd
     from glob import glob
@@ -79,24 +78,24 @@ We used the Google Colaboratory environment to run the experiments, so:
     warnings.filterwarnings("ignore")
 
     # path of datasets to predict
-    path = '/content/MDS_CPDP/benchmark-execution/benchmarks/datasets/RELINK/*'
+    path = '/content/Multi_DES/benchmark-execution/benchmarks/datasets/RELINK/*'
 
     # read and create dataframe (dataset) with all projects for predict
     dataset = []
     for project_url in glob(path):
-      productName = project_url.split('/')[len(project_url.split('/'))-1]
+      productName = project_url.split('/')[len(project_url.split('/'))-1].split('.csv')[0]
       df = pd.read_csv(project_url)
       df.insert(0, 'productName', productName)
       dataset.append(df)
     dataset = pd.concat(dataset).reset_index(drop=True)
 
-    #create MDSCPDP object to predict dataset
-    obj = MDSCPDP(dataset)
+    #create Multi-DES object to predict dataset
+    obj = MULTIDES(dataset)
 
-    #get MDSCPDP performance after predict the dataset. Return a pandas dataframe
+    #get Multi-DE performance after predict the dataset. Return a pandas dataframe
     obj.performances
 
-In addition to prediction with default parameters, the MDS-CPDP method accepts any list of dynamic selection techniques (from deslib) and list of classifiers (from scikit-learn) as input, including a list containing different size for pool of classifier.
+In addition to prediction with default parameters, the Multi-DES method accepts any list of dynamic selection techniques (from deslib) and list of classifiers (from scikit-learn) as input, including a list containing different size for pool of classifier.
 
 References:
 -----------
