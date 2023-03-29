@@ -52,7 +52,7 @@ Latest version (under development):
 
 .. code-block:: bash
 
-    !git clone https://github.com/jsaj/mds_cpdp.git
+    !git clone https://github.com/jsaj/Multi_DES.git
 
 Also, need install deslib:
 
@@ -64,7 +64,7 @@ Also, need install deslib:
 Example
 --------------
 
-Here we show an example using the MDS-CPDP with default parameters.
+Here we show an example using the Multi-DES with default parameters.
 We used the Google Colaboratory environment to run the experiments, so:
 
 .. code-block:: python
